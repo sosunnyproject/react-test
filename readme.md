@@ -45,3 +45,7 @@ when we execute yarn start : all the code in JSX : puts that <div>...</div> into
 
 import react, import component
 create class that extends Component of ReactDOMand use that class object in main js or html files to render
+
+2-4. Validating Props with PropTypes
+you add key={index} in src/App.js App-render function.
+Because of the error that says 'index.js:2177 Warning: Each child in an array or iterator should have a unique "key" prop.'
