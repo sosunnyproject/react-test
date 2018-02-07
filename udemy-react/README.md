@@ -96,8 +96,6 @@ ReactDOM.render(
 > https://reactjs.org/docs/components-and-props.html
 
 1. _CAN declare component as a function or a class_
-2. _component CANNOT modify its own props_\
+2. _component CANNOT modify its own props_
 3. _then how to change something? use STATE_
 4. _local state: a feature available only to classes_
-
-
