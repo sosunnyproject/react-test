@@ -56,7 +56,7 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
     - const appRoot = document.getElementById('app');
     - ReactDOM.render(template, appRoot);
   - index.html
-    - <body><div id="app"></div></body>
+    - ```html <body><div id="app"></div></body> ```
 
 ### Component
 
@@ -95,9 +95,9 @@ ReactDOM.render(
 ```
 > https://reactjs.org/docs/components-and-props.html
 
-_CAN declare component as a function or a class_
-_component CANNOT modify its own props_\
-_then how to change something? use STATE_
-_local state: a feature available only to classes_
+1. _CAN declare component as a function or a class_
+2. _component CANNOT modify its own props_\
+3. _then how to change something? use STATE_
+4. _local state: a feature available only to classes_
 
 
