@@ -66,34 +66,30 @@ state = {
   }
 
   componentDidMount(){
-    //setTimeout(function, 1000)
-    //setTimeout(what-you-want-to-do, 1000-after-this-much-time)
-    //ES5 function writing
-    // setTimeout(function(){
-    //   console.log('hello')
-    // }, 1000)
-
-    setTimeout(() => console.log('hello'), 1000)
-
-    setTimeout( () =>
-    {
-      this.setState(
-        {
-          movies: [
-          ...this.state.movies,
-          {
-            title: "Chef's Table",
-            poster:"https://upload.wikimedia.org/wikipedia/en/1/11/Chef%27s_Table.jpg"
-          }
-        ]
-      })
-    }, 1000);
+    this._getMovies();
   }
-
+  
+ _getMovies = async () => {
+   const movies = await this._callApi()
+   //return value of _callApi is saved in const movies
+   //the code block below will happen only after await is finished/finalized/completed/whether fulfilled or failed/done/not pending
+   this.setState({
+     movies
+   )}
+ }
+ 
+ _callApi = () => {
+  return fetch('https://yts.ag/api/v2/list_movies.json?sort_by=rating')
+   .then(potato => potato.json())
+   .then(json => console.log(json))
+   .catch(err => console.log(err))
+ }
+ 
+  
   //let's define a new function that keeps the state's movie object inside new variable.
   _renderMovies = () => {
-    const movies = this.state.movies.map(  (movie, index) => {
-      return <Movie title={movie.title} poster={movie.poster} key={index}/>
+    const movies = this.state.movies.map(movie => {
+      return <Movie title={movie.title} poster={movie.large_cover_image} key={movie.id} />
     })
     //const movies = array of <Movie /> <Movie /> ...
     return movies
